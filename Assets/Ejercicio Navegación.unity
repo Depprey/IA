@@ -3115,7 +3115,7 @@ MonoBehaviour:
   m_AutoDolly:
     m_Enabled: 1
     m_SearchRadius: 0
-    m_StepsPerSegment: -42
+    m_StepsPerSegment: 0
 --- !u!114 &165040867
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -34132,8 +34132,8 @@ MonoBehaviour:
   - position: {x: 0, y: 0, z: 1}
     tangent: {x: 1, y: 0, z: 0}
     roll: 0
-  - position: {x: 8.010783, y: 0, z: 16.119654}
-    tangent: {x: 0.6198988, y: 0, z: 6.757372}
+  - position: {x: 3.6484766, y: 7.887821, z: 16.524572}
+    tangent: {x: 0.6198988, y: -4.6088924, z: 6.757372}
     roll: 0
   - position: {x: 5.294222, y: 0, z: 28.7475}
     tangent: {x: -8.037995, y: 0, z: -0.21117973}
@@ -34173,6 +34173,9 @@ MonoBehaviour:
     roll: 0
   - position: {x: -82.89649, y: 20.38448, z: 93.42375}
     tangent: {x: 0.13672638, y: 0.2238779, z: 7.457756}
+    roll: 0
+  - position: {x: -76.548416, y: 20.608356, z: 114.80741}
+    tangent: {x: 9.119186, y: 0.22387695, z: 5.009552}
     roll: 0
 --- !u!1001 &1987444266
 Prefab:
