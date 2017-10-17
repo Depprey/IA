@@ -32,7 +32,7 @@ public class Manager : MonoBehaviour {
 
         if (dist <= reachDist)
         {
-            i++;
+                i = (i + 1) % path.Length;
         }
             if (i >= path.Length)
             {

@@ -10,12 +10,14 @@ public class IANav : MonoBehaviour {
 
     public NavMeshAgent navMeshAgent;
     public Vector3 startPosition;
+    public Animator anim;
 
     int i=0;
 
 	// Use this for initialization
 	void Start () {
 
+        anim = GetComponent<Animator>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
 
         if(navMeshAgent == null)
@@ -46,5 +48,13 @@ public class IANav : MonoBehaviour {
         }
         }
 
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("salto"))
+        {
+            anim.SetTrigger("Salto");
+        }
     }
 }
