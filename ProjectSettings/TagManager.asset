@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - salto
+  - Fire
+  - SaltoBueno
   layers:
   - Default
   - TransparentFX
