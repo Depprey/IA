@@ -76,7 +76,7 @@ public class IANav : MonoBehaviour {
             case "objeto":
                 Debug.Log("HA ENTRADO AL COLLISION ENTER");
                 other.gameObject.SetActive(false);
-                GameObject SaltoActivable = GameObject.FindGameObjectWithTag("SaltoBueno");
+                
                 saltito1.activated = true;
                
                 break;
