@@ -23586,6 +23586,14 @@ MonoBehaviour:
   - {fileID: 1471101320}
   - {fileID: 674057734}
   - {fileID: 46064558}
+  - {fileID: 1383063347}
+  - {fileID: 901157737}
+  - {fileID: 1137982453}
+  - {fileID: 1264699361}
+  - {fileID: 1136047171}
+  - {fileID: 1786533921}
+  - {fileID: 1016603593}
+  - {fileID: 1620228462}
   navMeshAgent: {fileID: 1326005133}
   startPosition: {x: 0, y: 0, z: 0}
   anim: {fileID: 1326005135}
