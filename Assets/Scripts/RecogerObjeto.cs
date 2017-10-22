@@ -13,7 +13,9 @@ public class RecogerObjeto : MonoBehaviour {
     void OnCollisionEnter(Collision col)
     {
         if(col.gameObject.name == "Path16Objeto")
+
         {
+            Debug.Log("HA ENTRADO AL COLLISION ENTER");
             Destroy(col.gameObject);
             GameObject SaltoActivable = GameObject.FindGameObjectWithTag("SaltoBueno");
             SaltoActivable.SetActive(true);
