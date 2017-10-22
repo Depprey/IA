@@ -13,8 +13,8 @@ public class IANav : MonoBehaviour {
     public Animator anim;
 
 
-    public GameObject saltito1;
-    public GameObject saltito2;
+    public OffMeshLink saltito1;
+    
 
     bool salto = false;
 
@@ -77,8 +77,8 @@ public class IANav : MonoBehaviour {
                 Debug.Log("HA ENTRADO AL COLLISION ENTER");
                 other.gameObject.SetActive(false);
                 GameObject SaltoActivable = GameObject.FindGameObjectWithTag("SaltoBueno");
-                saltito1.SetActive(true);
-                saltito2.SetActive(true);
+                saltito1.activated = true;
+               
                 break;
            
 
