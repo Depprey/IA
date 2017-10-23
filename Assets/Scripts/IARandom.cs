@@ -22,7 +22,7 @@ public class IARandom : MonoBehaviour
 
 
     bool cogioObjeto = false;
-    bool salto = false;
+
     bool finBucle = false;
     int i = 0;
 
@@ -90,15 +90,7 @@ public class IARandom : MonoBehaviour
         {
             case "salto":
 
-                if (salto == false)
-                {
-                    salto = true;
-                }
-                else
-                {
-                    salto = false;
-                }
-                anim.SetBool("Salto", salto);
+                anim.SetTrigger("Salto");
                 break;
 
             case "objeto":

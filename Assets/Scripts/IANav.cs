@@ -21,7 +21,7 @@ public class IANav : MonoBehaviour {
 
 
     bool cogioObjeto = false;
-    bool salto = false;
+    
 
     int i=0;
 
@@ -90,16 +90,8 @@ public class IANav : MonoBehaviour {
         switch (other.tag)
         {
             case "salto":
-
-                if(salto == false)
-                {
-                    salto = true;
-                }
-                else
-                {
-                    salto = false;
-                }                
-                anim.SetBool("Salto", salto);
+     
+                anim.SetTrigger("Salto");
                 break;
 
             case "objeto":

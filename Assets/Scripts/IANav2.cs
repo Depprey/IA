@@ -22,7 +22,7 @@ public class IANav2 : MonoBehaviour
 
 
     bool cogioObjeto = false;
-    bool salto = false;
+
     bool finBucle = false;
     int i = 0;
 
@@ -105,15 +105,7 @@ public class IANav2 : MonoBehaviour
         {
             case "salto":
 
-                if (salto == false)
-                {
-                    salto = true;
-                }
-                else
-                {
-                    salto = false;
-                }
-                anim.SetBool("Salto", salto);
+                anim.SetTrigger("Salto");
                 break;
 
             case "objeto":
