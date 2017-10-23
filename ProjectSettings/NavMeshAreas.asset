@@ -17,8 +17,8 @@ NavMeshProjectSettings:
     cost: 3
   - name: Rampa
     cost: 5
-  - name: 
-    cost: 1
+  - name: PlataformaAreaMayor
+    cost: 10
   - name: 
     cost: 1
   - name: 
