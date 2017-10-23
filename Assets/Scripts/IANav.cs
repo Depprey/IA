@@ -12,9 +12,13 @@ public class IANav : MonoBehaviour {
     public Vector3 startPosition;
     public Animator anim;
 
+    public CambioCoste x;
 
     public OffMeshLink saltito1;
-    
+
+    public float reachDist = 5f;
+    public Transform objetoX;
+
 
     bool salto = false;
 
@@ -37,6 +41,11 @@ public class IANav : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        float dist = Vector3.Distance(objetoX.position, transform.position);
+        if ( dist <= reachDist)
+        {
+            navMeshAgent.destination = objetoX.position;
+        }
 
         if (navMeshAgent.remainingDistance < 0.5f)
         { 
@@ -58,10 +67,11 @@ public class IANav : MonoBehaviour {
 
   void OnTriggerEnter(Collider other)
     {
-        Debug.Log("HE ENTRADO EN EL TRIGGER");
+        
         switch (other.tag)
         {
             case "salto":
+
                 if(salto == false)
                 {
                     salto = true;
@@ -69,18 +79,20 @@ public class IANav : MonoBehaviour {
                 else
                 {
                     salto = false;
-                }
-                Debug.Log("HE ENTRADO EN EL COMPARETAG");
+                }                
                 anim.SetBool("Salto", salto);
                 break;
             case "objeto":
-                Debug.Log("HA ENTRADO AL COLLISION ENTER");
-                other.gameObject.SetActive(false);
-                
-                saltito1.activated = true;
-               
+                                
+                other.gameObject.SetActive(false);                
+                saltito1.activated = true;               
                 break;
-           
+
+            case "objetoSuelo":
+
+                x.cambioCoste();
+                break;
+
 
         }
            
