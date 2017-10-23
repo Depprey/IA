@@ -9,6 +9,7 @@ TagManager:
   - player
   - objeto
   - objetoSuelo
+  - puerta
   layers:
   - Default
   - TransparentFX

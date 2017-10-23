@@ -12,14 +12,15 @@ public class IANav : MonoBehaviour {
     public Vector3 startPosition;
     public Animator anim;
 
-    public CambioCoste x;
+    public GameObject x;
 
     public OffMeshLink saltito1;
 
-    public float reachDist = 5f;
-    public Transform objetoX;
+    public float reachDist = 10f;
+    public GameObject objetoX;
 
 
+    bool cogioObjeto = false;
     bool salto = false;
 
     int i=0;
@@ -40,11 +41,22 @@ public class IANav : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        float dist = Vector3.Distance(objetoX.position, transform.position);
+     
+        if (cogioObjeto == false) { 
+        float dist = Vector3.Distance(objetoX.transform.position, transform.position);
         if ( dist <= reachDist)
         {
-            navMeshAgent.destination = objetoX.position;
+            navMeshAgent.destination = objetoX.transform.position;
+            if (!navMeshAgent.pathPending) {
+
+                    CambioCoste y = x.GetComponent<CambioCoste>();
+                    y.cambioCoste();
+                    objetoX.SetActive(false);
+                    navMeshAgent.destination = destination[i].position;
+                    cogioObjeto = true;
+
+            }
+        }
         }
 
         if (navMeshAgent.remainingDistance < 0.5f)
@@ -82,16 +94,19 @@ public class IANav : MonoBehaviour {
                 }                
                 anim.SetBool("Salto", salto);
                 break;
+
             case "objeto":
                                 
                 other.gameObject.SetActive(false);                
                 saltito1.activated = true;               
                 break;
 
-            case "objetoSuelo":
+            case "puerta":
 
-                x.cambioCoste();
+                puerta xx = other.gameObject.GetComponent<puerta>();
+                xx.abrirPuerta();
                 break;
+
 
 
         }

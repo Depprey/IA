@@ -7,7 +7,8 @@ public class CambioCoste : MonoBehaviour {
     
     public void cambioCoste()
     {
-        NavMesh.SetAreaCost(NavMesh.GetAreaFromName("PlataformaAreaMayor"), 2.0f);
+        Debug.Log("estas entrando al cambiocoste?? TAMBIEN!");
+        NavMesh.SetAreaCost(6, 2f);
         StartCoroutine("restaurarCoste");
     }
 
