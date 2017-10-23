@@ -27,7 +27,7 @@ public class IANav : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        // GUARDAMOS EN VARIABLES LOS COMPONENTES DE ANIMATOR Y NAVMESH AGENT
         anim = GetComponent<Animator>();
         navMeshAgent = this.GetComponent<NavMeshAgent>();
 
@@ -41,7 +41,10 @@ public class IANav : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        // ESTABLECEMOS LA ANIMACION CON LA VELOCIDAD DE LA IA
+        anim.SetFloat("velocidad", navMeshAgent.speed);
      
+        // ESTE BUCLE BUSCA EL OBJETO QUE TIENE QUE COGER, SI ESTA CERCA VA A POR EL.
         if (cogioObjeto == false) { 
         float dist = Vector3.Distance(objetoX.transform.position, transform.position);
         if ( dist <= reachDist)
@@ -58,7 +61,8 @@ public class IANav : MonoBehaviour {
             }
         }
         }
-
+        // BUCLE DONDE LA IA VA CAMBIANDO SU DESTINO A UN NUEVO PATH
+        // EN ESTE CASO CUANDO ACABE VOLVERA AL PRIMER PUNTO.
         if (navMeshAgent.remainingDistance < 0.5f)
         { 
         navMeshAgent.destination = destination[i].position; 
@@ -77,6 +81,9 @@ public class IANav : MonoBehaviour {
 
     }
 
+    // TRIGGERS DONDE BUSCA POR TAGS, EL DE SALTO PARA ANIMACIÓN,
+    // OBJETO PARA ACIVAR EL OFFMESH Y HACER DESAPARECER EL CUBO
+    // Y PUERTA PARA HACER DESAPARECER LAS PUERTAS CUANDO VAYA A PASAR.
   void OnTriggerEnter(Collider other)
     {
         
@@ -112,8 +119,27 @@ public class IANav : MonoBehaviour {
         }
            
     }
+    // EN ESTE TRIGGER MIENTRAS ESTE EN ESTA CASILLA AUMENTARA SU VELOCIDAD.
+    private void OnTriggerStay(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "velocidad":
+                navMeshAgent.speed = 8;
+                break;
+        }
+    }
+    // EN ESTE CUANDO SALGA DE LA CASILLA VOLVERA A SU VELOCIDAD NORMAL.
+    private void OnTriggerExit(Collider other)
+    {
+        switch (other.tag)
+        {
+            case "velocidad":
+                navMeshAgent.speed = 4;
+                break;
+        }
+    }
 
-  
 
 
 
